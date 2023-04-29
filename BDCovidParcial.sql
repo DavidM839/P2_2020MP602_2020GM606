@@ -9,10 +9,11 @@ genero varchar(30)
 );
 
 create table CasosReportados(
-id_caso int identity Primary key,
-num_casos_confirm int,
-num_casos_rec int,
-num_casos_fall int
+id int identity Primary key,
+departamento_id
+confirmados int,
+recuperados int,
+fallecidos int
 );
 
 insert into Departamentos(Nombre_dep)
