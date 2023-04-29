@@ -1,0 +1,22 @@
+﻿@using 
+    
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+var tiposEquipos = ViewData["listaTipoEquipos"];
+
+<div class="text-center">
+    <h1 class="display-4">Registro Covid</h1>
+    <p>El siguiente formulario es para llevar el registro de casos reportados de Covid por departamento y genero.</p>
+</div>
+
+<div>
+<h4>Reportar casos.</h4>
+</div>
+<form asp-action="Create">
+    <div class="col-sm-4">
+        @Html.DropDownList("estado_equipo_id", new SelectList(listadoEstados,"id_estados_equipo","descripcion"), "Seleccione un Estado",new {@class="form-control"})
+    </div>
+</form>
