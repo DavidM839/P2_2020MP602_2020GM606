@@ -9,87 +9,87 @@ using P2_2020MP602_2020GM606.Models;
 
 namespace P2_2020MP602_2020GM606.Controllers
 {
-    public class DepartamentosController : Controller
+    public class GenerosController : Controller
     {
         private readonly BDcovContext _context;
 
-        public DepartamentosController(BDcovContext context)
+        public GenerosController(BDcovContext context)
         {
             _context = context;
         }
 
-        // GET: Departamentos
+        // GET: Generos
         public async Task<IActionResult> Index()
         {
-              return _context.Departamentos != null ? 
-                          View(await _context.Departamentos.ToListAsync()) :
-                          Problem("Entity set 'BDcovContext.Departamentos'  is null.");
+              return _context.Generos != null ? 
+                          View(await _context.Generos.ToListAsync()) :
+                          Problem("Entity set 'BDcovContext.Generos'  is null.");
         }
 
-        // GET: Departamentos/Details/5
+        // GET: Generos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Departamentos == null)
+            if (id == null || _context.Generos == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos
-                .FirstOrDefaultAsync(m => m.id_departamento == id);
-            if (departamento == null)
+            var generos = await _context.Generos
+                .FirstOrDefaultAsync(m => m.id_genero == id);
+            if (generos == null)
             {
                 return NotFound();
             }
 
-            return View(departamento);
+            return View(generos);
         }
 
-        // GET: Departamentos/Create
+        // GET: Generos/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Departamentos/Create
+        // POST: Generos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id_departamento,Nombre_dep")] Departamentos departamento)
+        public async Task<IActionResult> Create([Bind("id_genero,genero")] Generos generos)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(departamento);
+                _context.Add(generos);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(departamento);
+            return View(generos);
         }
 
-        // GET: Departamentos/Edit/5
+        // GET: Generos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Departamentos == null)
+            if (id == null || _context.Generos == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos.FindAsync(id);
-            if (departamento == null)
+            var generos = await _context.Generos.FindAsync(id);
+            if (generos == null)
             {
                 return NotFound();
             }
-            return View(departamento);
+            return View(generos);
         }
 
-        // POST: Departamentos/Edit/5
+        // POST: Generos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id_departamento,Nombre_dep")] Departamentos departamento)
+        public async Task<IActionResult> Edit(int id, [Bind("id_genero,genero")] Generos generos)
         {
-            if (id != departamento.id_departamento)
+            if (id != generos.id_genero)
             {
                 return NotFound();
             }
@@ -98,12 +98,12 @@ namespace P2_2020MP602_2020GM606.Controllers
             {
                 try
                 {
-                    _context.Update(departamento);
+                    _context.Update(generos);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DepartamentoExists(departamento.id_departamento))
+                    if (!GenerosExists(generos.id_genero))
                     {
                         return NotFound();
                     }
@@ -114,49 +114,49 @@ namespace P2_2020MP602_2020GM606.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(departamento);
+            return View(generos);
         }
 
-        // GET: Departamentos/Delete/5
+        // GET: Generos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Departamentos == null)
+            if (id == null || _context.Generos == null)
             {
                 return NotFound();
             }
 
-            var departamento = await _context.Departamentos
-                .FirstOrDefaultAsync(m => m.id_departamento == id);
-            if (departamento == null)
+            var generos = await _context.Generos
+                .FirstOrDefaultAsync(m => m.id_genero == id);
+            if (generos == null)
             {
                 return NotFound();
             }
 
-            return View(departamento);
+            return View(generos);
         }
 
-        // POST: Departamentos/Delete/5
+        // POST: Generos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Departamentos == null)
+            if (_context.Generos == null)
             {
-                return Problem("Entity set 'BDcovContext.Departamentos'  is null.");
+                return Problem("Entity set 'BDcovContext.Generos'  is null.");
             }
-            var departamento = await _context.Departamentos.FindAsync(id);
-            if (departamento != null)
+            var generos = await _context.Generos.FindAsync(id);
+            if (generos != null)
             {
-                _context.Departamentos.Remove(departamento);
+                _context.Generos.Remove(generos);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DepartamentoExists(int id)
+        private bool GenerosExists(int id)
         {
-          return (_context.Departamentos?.Any(e => e.id_departamento == id)).GetValueOrDefault();
+          return (_context.Generos?.Any(e => e.id_genero == id)).GetValueOrDefault();
         }
     }
 }

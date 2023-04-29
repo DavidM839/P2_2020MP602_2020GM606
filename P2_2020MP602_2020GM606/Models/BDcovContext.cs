@@ -7,7 +7,8 @@ namespace P2_2020MP602_2020GM606.Models
         public BDcovContext(DbContextOptions options) : base(options)
         {
         }
-        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Departamentos> Departamentos { get; set; }
+        public DbSet<Generos> Generos { get; set; }
 
     }
 }
