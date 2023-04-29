@@ -4,9 +4,15 @@ namespace P2_2020MP602_2020GM606.Models
     public class CasosReportados
     {
         [Key]
-        public int id_caso { get; set; }
-        public int num_casos_confirm { get; set; }
-        public int num_casos_rec { get; set; }
-        public int num_casos_fall { get; set; }
+
+        public int id { get; set; }
+
+        public int? departamento_id { get; set; }
+
+        public int? genero_id { get; set; }
+
+        public int? confirmados { get; set; }
+        public int? recuperados { get; set; }
+        public int? fallecidos { get; set; }
     }
 }

@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using P2_2020MP602_2020GM606.Models;
-
 namespace P2_2020MP602_2020GM606.Controllers
 {
     public class DepartamentosController : Controller

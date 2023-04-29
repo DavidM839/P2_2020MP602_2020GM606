@@ -5,6 +5,7 @@ namespace P2_2020MP602_2020GM606.Models
     {
         [Key]
         public int id_genero { get; set; }
+        [Display(Name = "Genero")]
         public String? genero { get; set; }
     }
 }

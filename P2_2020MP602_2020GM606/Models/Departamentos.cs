@@ -5,6 +5,7 @@ namespace P2_2020MP602_2020GM606.Models
     {
         [Key]
         public int id_departamento { get; set; }
+        [Display(Name = "Departamento")]
         public String? Nombre_dep { get; set; }
     }
 }
