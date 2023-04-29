@@ -3,6 +3,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<equiposDbContext>(opt =>
+        opt.UseSqlServer(
+            builder.Configuration.GetConnectionString("string_conexion")
+            )
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
